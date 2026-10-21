@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script src="/splash.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sam Clapp</title>
+<meta name="description" content="Sam Clapp — Atlanta. SAP and change-management leader, choral musician, tinkerer.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#241F1A;--kraft:#E6D4AC;--cream:#F3EEE4;--paper:#FBF8F1;--line:#EDE6D7;--muted:#5C564D;
+        --cobalt:#223A80;--oxblood:#7C2E2C;--ochre:#D7A82E;--pine:#2F6742}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Hanken Grotesk',system-ui,sans-serif;line-height:1.6;font-size:17px}
+  a{color:var(--cobalt)}
+  .wrap{max-width:880px;margin:0 auto;padding:0 24px}
+  header{background:var(--paper);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 24px}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .brand span{font-family:'Spectral',serif;font-size:19px;font-weight:500;color:var(--ink)}
+  nav{display:flex;gap:22px;font-size:14px}
+  nav a{color:var(--muted);text-decoration:none;padding-bottom:2px;border-bottom:2px solid transparent}
+  nav a:hover{color:var(--ink);border-bottom-color:var(--ochre)}
+  .hero{padding:72px 0 40px}
+  .hero h1{font-family:'Spectral',serif;font-weight:500;font-size:clamp(38px,7vw,60px);line-height:1.1;margin:0 0 14px;letter-spacing:-.01em}
+  .hero p{font-size:19px;color:var(--muted);max-width:34em;margin:0}
+  .label{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+  section{padding:44px 0;border-top:1px solid var(--line)}
+  h2{font-family:'Spectral',serif;font-weight:500;font-size:30px;margin:0 0 8px;line-height:1.2}
+  h3{font-family:'Spectral',serif;font-weight:500;font-size:22px;margin:28px 0 6px}
+  .tag{font-family:'Spectral',serif;font-style:italic;color:var(--oxblood);font-size:19px;margin:0 0 18px}
+  .btn{display:inline-block;background:var(--ink);color:var(--cream);text-decoration:none;font-weight:500;font-size:15px;padding:11px 20px;border-radius:6px;margin:4px 10px 4px 0}
+  .btn:hover{background:#3A322A}
+  .btn.alt{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+  .embed{margin-top:18px;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff}
+  .embed iframe{display:block;width:100%;border:0}
+  .pdf iframe{height:640px}
+  .cal iframe{height:520px}
+  .note{background:var(--cream);border-left:3px solid var(--ochre);padding:12px 16px;border-radius:0 6px 6px 0;font-size:15px;color:var(--muted)}
+  footer{padding:36px 0 56px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+  @media (max-width:560px){nav{gap:14px;font-size:13px}.pdf iframe{height:480px}.hero{padding-top:48px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="brand" href="/">
+    <svg width="46" height="24" viewBox="0 0 124 62" fill="none" aria-hidden="true">
+      <line x1="14" y1="56" x2="14" y2="36" stroke="#223A80" stroke-width="5" stroke-linecap="round"/>
+      <line x1="30" y1="56" x2="30" y2="20" stroke="#7C2E2C" stroke-width="5" stroke-linecap="round"/>
+      <line x1="46" y1="56" x2="46" y2="28" stroke="#D7A82E" stroke-width="5" stroke-linecap="round"/>
+      <line x1="62" y1="56" x2="62" y2="12" stroke="#2F6742" stroke-width="5" stroke-linecap="round"/>
+      <line x1="78" y1="56" x2="78" y2="24" stroke="#223A80" stroke-width="5" stroke-linecap="round"/>
+      <line x1="94" y1="56" x2="94" y2="16" stroke="#7C2E2C" stroke-width="5" stroke-linecap="round"/>
+      <line x1="110" y1="56" x2="110" y2="32" stroke="#D7A82E" stroke-width="5" stroke-linecap="round"/>
+    </svg>
+    <span>Sam Clapp</span>
+  </a>
+  <nav>
+    <a href="#resume">Résumé</a>
+    <a href="#te-deum">Te Deum</a>
+    <a href="#choir">Choir</a>
+    <a href="#worship">Worship</a>
+  </nav>
+</div></header>
+
+<main class="wrap">
+  <div class="hero">
+    <p class="label">Atlanta, Georgia</p>
+    <h1>Sam Clapp</h1>
+    <p>Systems leader, choral musician, and builder of useful little tools.</p>
+  </div>
+
+  <section id="resume">
+    <p class="label">Work</p>
+    <h2>My Résumé</h2>
+    <p class="tag">Hey, why not get me a job, while you're here?</p>
+    <a class="btn" href="https://drive.google.com/file/d/1l87tHK4flZSkjYqbiupBvw0Wt07KsgNS/view" target="_blank" rel="noopener">Open résumé</a>
+    <a class="btn alt" href="https://tools.samclapp.net/">Things I've built</a>
+    <div class="embed pdf"><iframe src="https://drive.google.com/file/d/1l87tHK4flZSkjYqbiupBvw0Wt07KsgNS/preview" title="Sam Clapp résumé" loading="lazy"></iframe></div>
+  </section>
+
+  <section id="te-deum">
+    <p class="label">Music</p>
+    <h2>Dvořák, <em>Te Deum</em> — a new edition</h2>
+    <p>The public-domain edition of Dvořák's <em>Te Deum</em> is old and muddy, with questionable text and note values. I made a fresh edition in Dorico that matches the public-domain score page for page, so the two can sit side by side in rehearsal.</p>
+    <p class="note">It's a rehearsal score, not an accompanist edition. An accompanist edition and a more freely laid-out one are planned.</p>
+    <a class="btn" href="https://drive.google.com/file/d/1JsqlPifwVLmQGSNX-hPVB1vqSMANJs2Z/view" target="_blank" rel="noopener">Open the score (PDF)</a>
+    <div class="embed pdf"><iframe src="https://drive.google.com/file/d/1JsqlPifwVLmQGSNX-hPVB1vqSMANJs2Z/preview" title="Te Deum, Ed. 2" loading="lazy"></iframe></div>
+  </section>
+
+  <section id="choir">
+    <p class="label">Rehearsals</p>
+    <h2>Sanctuary Choir calendar</h2>
+    <div class="embed cal"><iframe src="https://www.google.com/calendar/embed?color=%23fbe983&amp;embed_style=WyJhdDplbWI6c3QiLCIjZTBlMGUwIiwiI2VkZWRlZCIsIiM0MTg0ZjMiLCJyb2JvdG8iLCIjNjM2MzYzIiw1MDAsIiNmZmYiXQo&amp;eopt=0&amp;mode=agenda&amp;showCalendars=1&amp;showPrint=0&amp;showTz=0&amp;src=ca1cugpo16fhc2gta5996ok6q9ekl17l@import.calendar.google.com" title="Sanctuary Choir calendar" loading="lazy"></iframe></div>
+    <p><a href="https://www.google.com/calendar/embed?color=%23fbe983&amp;src=ca1cugpo16fhc2gta5996ok6q9ekl17l@import.calendar.google.com" target="_blank" rel="noopener">Open the calendar in a new window</a></p>
+  </section>
+
+  <section id="worship">
+    <p class="label">Sundays</p>
+    <h2>OBC Order of Worship</h2>
+    <p>I put together the digital Order of Worship every week.</p>
+    <a class="btn" href="http://qr.oakhurstbaptist.org/oow">Open this week's digital version</a>
+  </section>
+</main>
+
+<footer><div class="wrap">
+  <span>© Sam Clapp</span>
+  <span><a href="https://tools.samclapp.net/">Tools</a> · <a href="https://unstuck.samclapp.net/">Unstuck</a></span>
+</div></footer>
+</body>
+</html>

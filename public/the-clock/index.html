@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trump Wealth Clock | ~$56/sec Since Inauguration</title>
+<meta name="description" content="Live tracker of estimated wealth accumulated by Trump & family since the Jan 20, 2025 inauguration.">
+<meta property="og:title" content="Trump Wealth Clock — $56 Every Second">
+<meta property="og:description" content="Live counter of estimated Trump family wealth gains since Jan 20, 2025 inauguration. Based on documented reporting.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Trump Wealth Clock — ~$56 Every Second">
+<meta name="twitter:description" content="Live counter of estimated Trump family wealth gains since the 2025 inauguration. ~$4.8M per day.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #06090f;
+  --card: #0d1420;
+  --card2: #111a28;
+  --border: #1c2840;
+  --gold: #f5c842;
+  --gold-dim: #c9a028;
+  --green: #00e676;
+  --green-dim: rgba(0,230,118,0.12);
+  --text: #dde4ef;
+  --muted: #7a8fa8;
+  --faint: #3a4a60;
+}
+
+html, body {
+  min-height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 16px 60px;
+}
+
+.container {
+  width: 100%;
+  max-width: 700px;
+}
+
+/* ── HEADER ── */
+.header {
+  text-align: center;
+  padding: 40px 0 28px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 36px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+  padding: 4px 10px;
+  border: 1px solid rgba(245,200,66,0.25);
+  border-radius: 20px;
+  background: rgba(245,200,66,0.06);
+}
+
+.eyebrow::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--green);
+  border-radius: 50%;
+  animation: pulse-dot 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.7); }
+}
+
+.header h1 {
+  font-family: 'Bebas Neue', Impact, 'Arial Narrow', sans-serif;
+  font-size: clamp(40px, 9vw, 72px);
+  letter-spacing: 3px;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.header h1 span {
+  color: var(--gold);
+}
+
+.header-sub {
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+}
+
+/* ── MAIN COUNTER ── */
+.main-counter-wrap {
+  text-align: center;
+  padding: 44px 24px;
+  background: radial-gradient(ellipse at 50% 0%, rgba(0,230,118,0.06) 0%, transparent 70%);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.main-counter-wrap::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--green), transparent);
+  animation: scan 3s ease-in-out infinite;
+}
+
+@keyframes scan {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+.counter-eyebrow {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.main-counter {
+  font-family: 'Bebas Neue', monospace;
+  font-size: clamp(42px, 11vw, 84px);
+  color: var(--green);
+  line-height: 1;
+  letter-spacing: 2px;
+  text-shadow: 0 0 50px rgba(0,230,118,0.25);
+  word-break: break-all;
+  min-height: 1.1em;
+}
+
+.counter-sub {
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.counter-sub strong {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* ── RATE CARDS ── */
+.rate-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 460px) {
+  .rate-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.rate-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 10px;
+  text-align: center;
+}
+
+.rate-amount {
+  font-family: 'Bebas Neue', monospace;
+  font-size: 24px;
+  color: var(--gold);
+  display: block;
+  line-height: 1;
+  margin-bottom: 5px;
+}
+
+.rate-period {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+/* ── SESSION COUNTER ── */
+.session-box {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--gold);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.session-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.session-counter {
+  font-family: 'Bebas Neue', monospace;
+  font-size: 30px;
+  color: var(--gold);
+  letter-spacing: 1px;
+}
+
+/* ── STATS ROW ── */
+.stats-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.stat-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.stat-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.stat-value {
+  font-family: 'Bebas Neue', monospace;
+  font-size: 26px;
+  color: #fff;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.stat-note {
+  font-size: 10px;
+  color: var(--faint);
+  margin-top: 4px;
+}
+
+/* ── PROJECTION ── */
+.projection-card {
+  background: linear-gradient(135deg, rgba(245,200,66,0.07) 0%, rgba(245,200,66,0.02) 100%);
+  border: 1px solid rgba(245,200,66,0.25);
+  border-radius: 14px;
+  padding: 22px 24px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.proj-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 10px;
+}
+
+.proj-value {
+  font-family: 'Bebas Neue', monospace;
+  font-size: clamp(34px, 7vw, 52px);
+  color: #fff;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.proj-note {
+  margin-top: 8px;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* ── CONTEXT ── */
+.section-header {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: 12px;
+  margin-top: 28px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.context-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.context-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 13px 15px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.context-item strong {
+  color: var(--gold);
+}
+
+/* ── WEALTH BREAKDOWN ── */
+.breakdown-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.breakdown-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 13px 15px;
+}
+
+.breakdown-bar-wrap {
+  flex: 1;
+}
+
+.breakdown-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.breakdown-name span {
+  color: var(--gold);
+  font-family: 'Bebas Neue', monospace;
+  font-size: 14px;
+}
+
+.breakdown-bar {
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.breakdown-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-dim));
+}
+
+/* ── SHARE ── */
+.share-section {
+  margin-top: 8px;
+}
+
+.share-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  transition: opacity 0.15s, transform 0.1s;
+  font-family: inherit;
+  letter-spacing: 0.3px;
+}
+
+.btn:hover { opacity: 0.8; transform: translateY(-1px); }
+.btn:active { transform: translateY(0); opacity: 1; }
+
+.btn-x {
+  background: #000;
+  color: #fff;
+  border: 1px solid #2a2a2a;
+}
+
+.btn-copy {
+  background: var(--card2);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btn-embed {
+  background: var(--card2);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.embed-section {
+  display: none;
+  margin-top: 12px;
+}
+
+.embed-section.open { display: block; }
+
+.embed-instructions {
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.embed-code-box {
+  background: #000;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  color: #7a9bbf;
+  word-break: break-all;
+  white-space: pre-wrap;
+  cursor: pointer;
+  user-select: all;
+  line-height: 1.6;
+}
+
+.embed-code-box:hover {
+  border-color: var(--faint);
+}
+
+/* ── SOURCES ── */
+.sources-section {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.sources-section p {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 8px;
+}
+
+.sources-section a {
+  color: var(--gold-dim);
+  text-decoration: none;
+}
+
+.sources-section a:hover {
+  text-decoration: underline;
+}
+
+.disclaimer {
+  margin-top: 16px;
+  font-size: 10px;
+  color: var(--faint);
+  line-height: 1.7;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="eyebrow">Live Estimate</div>
+    <h1>Trump <span>Wealth</span> Clock</h1>
+    <div class="header-sub">Estimated gains by Trump &amp; family since Inauguration Day · Jan 20, 2025</div>
+  </div>
+
+  <!-- Main Counter -->
+  <div class="main-counter-wrap">
+    <div class="counter-eyebrow">Total accumulated since inauguration</div>
+    <div class="main-counter" id="mainCounter">$0</div>
+    <div class="counter-sub">Estimated at <strong>~$56 / second</strong> &nbsp;·&nbsp; <strong>~$4.8M / day</strong></div>
+  </div>
+
+  <!-- Rate Cards -->
+  <div class="rate-grid">
+    <div class="rate-card">
+      <span class="rate-amount">$56</span>
+      <span class="rate-period">Per Second</span>
+    </div>
+    <div class="rate-card">
+      <span class="rate-amount">$3,338</span>
+      <span class="rate-period">Per Minute</span>
+    </div>
+    <div class="rate-card">
+      <span class="rate-amount">$200K</span>
+      <span class="rate-period">Per Hour</span>
+    </div>
+    <div class="rate-card">
+      <span class="rate-amount">$4.8M</span>
+      <span class="rate-period">Per Day</span>
+    </div>
+  </div>
+
+  <!-- Session Counter -->
+  <div class="session-box">
+    <div>
+      <div class="session-label">Gained since you opened this page</div>
+    </div>
+    <div class="session-counter" id="sessionCounter">$0</div>
+  </div>
+
+  <!-- Stats Row -->
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-label">Days in office</div>
+      <div class="stat-value" id="daysInOffice">—</div>
+      <div class="stat-note">Since Jan 20, 2025</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Days remaining</div>
+      <div class="stat-value" id="daysRemaining">—</div>
+      <div class="stat-note">Until Jan 20, 2029</div>
+    </div>
+  </div>
+
+  <!-- Projection -->
+  <div class="projection-card">
+    <div class="proj-label">Projected total by end of term (Jan 20, 2029)</div>
+    <div class="proj-value" id="projValue">calculating…</div>
+    <div class="proj-note">If current pace holds through the full term · based on documented reporting</div>
+  </div>
+
+  <!-- Wealth Sources Breakdown -->
+  <div class="section-header">Documented sources of gains</div>
+  <div class="breakdown-list">
+    <div class="breakdown-item">
+      <div class="breakdown-bar-wrap">
+        <div class="breakdown-name">
+          Crypto (WLF, TRUMP meme coin, American Bitcoin)
+          <span>~$1.4B+</span>
+        </div>
+        <div class="breakdown-bar"><div class="breakdown-fill" style="width:70%"></div></div>
+      </div>
+    </div>
+    <div class="breakdown-item">
+      <div class="breakdown-bar-wrap">
+        <div class="breakdown-name">
+          Foreign investment deals (UAE, Saudi, others)
+          <span>~$700M+</span>
+        </div>
+        <div class="breakdown-bar"><div class="breakdown-fill" style="width:35%"></div></div>
+      </div>
+    </div>
+    <div class="breakdown-item">
+      <div class="breakdown-bar-wrap">
+        <div class="breakdown-name">
+          Trump Media &amp; Technology (Truth Social)
+          <span>~$300M+</span>
+        </div>
+        <div class="breakdown-bar"><div class="breakdown-fill" style="width:15%"></div></div>
+      </div>
+    </div>
+    <div class="breakdown-item">
+      <div class="breakdown-bar-wrap">
+        <div class="breakdown-name">
+          Real estate, licensing, brand deals
+          <span>~$100M+</span>
+        </div>
+        <div class="breakdown-bar"><div class="breakdown-fill" style="width:5%"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Context -->
+  <div class="section-header">For context</div>
+  <ul class="context-list">
+    <li class="context-item">The median U.S. household earns ~$80,000/year. Trump accumulates that in <strong>under 24 minutes</strong>.</li>
+    <li class="context-item">At $56/sec, Trump gains more in a <strong>single day ($4.8M)</strong> than 60 median American workers earn in an entire year combined.</li>
+    <li class="context-item">The Center for American Progress "Trump's Take" tracker documented <strong>$2B+ in cash and gifts</strong> to the Trump family since the 2024 election — much of it tied directly to policy decisions.</li>
+    <li class="context-item">Forbes estimates Trump's net worth grew from <strong>~$4.3B to ~$6.5–7.3B</strong> in his second term. Bloomberg puts it even higher at $7.1B.</li>
+    <li class="context-item">Trump's son-in-law Jared Kushner received a <strong>$2B investment</strong> from Saudi Arabia's sovereign wealth fund shortly after Trump took office.</li>
+  </ul>
+
+  <!-- Share -->
+  <div class="section-header">Share this clock</div>
+  <div class="share-section">
+    <div class="share-buttons">
+      <a class="btn btn-x" id="tweetBtn" href="#" target="_blank" rel="noopener noreferrer">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.741l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Share on X
+      </a>
+      <button class="btn btn-copy" id="copyBtn">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        Copy Link
+      </button>
+      <button class="btn btn-embed" id="embedToggleBtn">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        Embed Code
+      </button>
+    </div>
+
+    <div class="embed-section" id="embedSection">
+      <p class="embed-instructions" style="margin-top:12px;">Paste this into any webpage. Click to select all.</p>
+      <div class="embed-code-box" id="embedCodeBox" title="Click to select all"></div>
+    </div>
+  </div>
+
+  <!-- Sources -->
+  <div class="sources-section">
+    <p><strong style="color:var(--text);font-weight:600">Methodology:</strong> The rate of ~$56/second is derived from documented Trump family gains of approximately $2.5B over the first 17 months of the second term (Jan 2025–Jun 2026). Net worth estimates fluctuate with crypto and stock prices. This clock is an <em>estimate for illustrative purposes</em> based on published reporting.</p>
+
+    <p><strong style="color:var(--text);font-weight:600">Key sources:</strong>
+      <a href="https://www.americanprogress.org/feature/trumps-take/" target="_blank" rel="noopener">CAP "Trump's Take" Tracker</a> ·
+      <a href="https://time.com/7342470/trump-net-worth-wealth-crypto/" target="_blank" rel="noopener">Time Magazine</a> ·
+      <a href="https://www.csmonitor.com/USA/Politics/2026/0605/donald-trump-presidency-private-wealth-ethics" target="_blank" rel="noopener">Christian Science Monitor</a> ·
+      <a href="https://www.gobankingrates.com/net-worth/politicians/trump-net-worth-2026-what-he-owns-what-he-owes/" target="_blank" rel="noopener">GOBankingRates</a> ·
+      <a href="https://finance.yahoo.com/news/trump-really-made-1-4b-120014123.html" target="_blank" rel="noopener">Yahoo Finance</a> ·
+      <a href="https://www.kucoin.com/news/flash/trump-family-claims-1b-in-crypto-profits-from-trump-coin-american-bitcoin-and-world-liberty-financial" target="_blank" rel="noopener">KuCoin / Crypto reporting</a>
+    </p>
+
+    <p class="disclaimer">Not affiliated with any political organization. All figures are estimates based on published reporting. Actual wealth accumulation may differ. Figures updated in real time based on the documented annualized rate.</p>
+  </div>
+
+</div><!-- /container -->
+
+<script>
+// ── CONSTANTS ──
+const INAUGURATION   = new Date('2025-01-20T17:00:00Z'); // Jan 20 2025, noon EST
+const END_OF_TERM    = new Date('2029-01-20T17:00:00Z'); // Jan 20 2029, noon EST
+const RATE_PER_SEC   = 55.64;   // ~$56/sec based on ~$2.5B over 17 months
+const SESSION_START  = Date.now();
+
+// ── DOM ──
+const mainCounterEl   = document.getElementById('mainCounter');
+const sessionCounterEl = document.getElementById('sessionCounter');
+const projValueEl     = document.getElementById('projValue');
+const daysInEl        = document.getElementById('daysInOffice');
+const daysRemEl       = document.getElementById('daysRemaining');
+
+// ── FORMATTERS ──
+function fmtFull(n) {
+  return '$' + Math.floor(n).toLocaleString('en-US');
+}
+
+function fmtCompact(n) {
+  if (n >= 1e12) return '$' + (n / 1e12).toFixed(2) + 'T';
+  if (n >= 1e9)  return '$' + (n / 1e9).toFixed(2) + 'B';
+  if (n >= 1e6)  return '$' + (n / 1e6).toFixed(1) + 'M';
+  return '$' + Math.floor(n).toLocaleString('en-US');
+}
+
+// ── ANIMATION LOOP ──
+function tick() {
+  const now = Date.now();
+
+  const secsTotal   = Math.max(0, (now - INAUGURATION.getTime()) / 1000);
+  const secsSession = (now - SESSION_START) / 1000;
+  const secsToEnd   = Math.max(0, (END_OF_TERM.getTime() - now) / 1000);
+
+  const totalGains    = secsTotal   * RATE_PER_SEC;
+  const sessionGains  = secsSession * RATE_PER_SEC;
+  const projectedTotal = totalGains + secsToEnd * RATE_PER_SEC;
+
+  const daysIn  = Math.floor(secsTotal / 86400);
+  const daysRem = Math.floor(secsToEnd / 86400);
+
+  mainCounterEl.textContent    = fmtFull(totalGains);
+  sessionCounterEl.textContent = fmtFull(sessionGains);
+  projValueEl.textContent      = fmtCompact(projectedTotal);
+  daysInEl.textContent         = daysIn.toLocaleString();
+  daysRemEl.textContent        = daysRem.toLocaleString();
+
+  requestAnimationFrame(tick);
+}
+
+requestAnimationFrame(tick);
+
+// ── SHARE ──
+const PAGE_URL = 'https://www.samclapp.net/the-clock';
+
+document.getElementById('tweetBtn').addEventListener('click', function(e) {
+  e.preventDefault();
+  const now = Date.now();
+  const total = ((now - INAUGURATION.getTime()) / 1000) * RATE_PER_SEC;
+  const text = `💰 Trump & family have accumulated an estimated ${fmtCompact(total)} since the Jan 2025 inauguration — about $56 every second ($4.8M/day). Live clock 👇`;
+  const url  = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(PAGE_URL)}`;
+  window.open(url, '_blank', 'noopener');
+});
+
+// Copy Link
+const copyBtn = document.getElementById('copyBtn');
+copyBtn.addEventListener('click', function() {
+  navigator.clipboard.writeText(PAGE_URL).then(() => {
+    copyBtn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Copied!`;
+    setTimeout(() => {
+      copyBtn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copy Link`;
+    }, 2500);
+  }).catch(() => {
+    // fallback
+    const ta = document.createElement('textarea');
+    ta.value = PAGE_URL;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    ta.remove();
+    copyBtn.textContent = '✓ Copied!';
+    setTimeout(() => { copyBtn.textContent = 'Copy Link'; }, 2500);
+  });
+});
+
+// Embed
+const embedToggleBtn = document.getElementById('embedToggleBtn');
+const embedSection   = document.getElementById('embedSection');
+const embedCodeBox   = document.getElementById('embedCodeBox');
+
+const embedHTML = `<iframe
+  src="${PAGE_URL}"
+  width="100%"
+  height="680"
+  frameborder="0"
+  scrolling="auto"
+  style="border:none; border-radius:14px; max-width:700px; display:block;"
+  title="Trump Wealth Clock"
+></iframe>`;
+
+embedCodeBox.textContent = embedHTML;
+
+embedToggleBtn.addEventListener('click', function() {
+  const open = embedSection.classList.toggle('open');
+  embedToggleBtn.innerHTML = open
+    ? `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Close`
+    : `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> Embed Code`;
+});
+
+// Click-to-copy the embed code box
+embedCodeBox.addEventListener('click', function() {
+  navigator.clipboard.writeText(embedHTML).catch(() => {});
+  const orig = embedCodeBox.style.borderColor;
+  embedCodeBox.style.borderColor = 'var(--gold-dim)';
+  setTimeout(() => { embedCodeBox.style.borderColor = orig; }, 800);
+});
+</script>
+</body>
+</html>
